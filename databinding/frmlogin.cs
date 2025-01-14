@@ -58,11 +58,17 @@ namespace databinding
             adp.Fill(dt);
             if (dt.Rows.Count>0)
             {
+                Program.loginID = int.Parse(dt.Rows[0]["Id"].ToString());
                 MessageBox.Show("login successful..");
+                MDIParent1 mp=new MDIParent1();
+                this.Visible = false;
+                mp.Show();
+                
 
             }
             else
             {
+                Program.loginID = null;
                 MessageBox.Show("invalid user Name or password or user Type!!!");
             }
 
